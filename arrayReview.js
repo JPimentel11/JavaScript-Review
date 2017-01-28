@@ -3,18 +3,30 @@ var threeItems = [1,2,3];
 //alert the result of your function
 
   //code here
-
+function last (inputArr) {
+  return inputArr[inputArr.length-1];
+}
 
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
 
-//Loop through evenArray removing all values that aren't even 
+//Loop through evenArray removing all values that aren't even
 var evenArray = [1,2,3,6,22,98,45,23,22,12];
 
   //code here
+function removeOdds(inputArr) {
+  var evenArr = [];
+  for (var i = 0; i < inputArr.length; i++) {
+    if (inputArr[i] % 2 === 0) {
+      evenArr.push(inputArr[i]);
+    }
+  }
+  console.log(evenArr);
+}
 
+removeOdds(evenArray);
 
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
@@ -27,8 +39,18 @@ var getRandomArbitrary = function() {
 var randomArray = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 
   //code here
+function rndNumCheck (randNum, randArr) {
+  var result = false;
+  console.log(randNum);
+  for (var i = 0; i < randArr.length; i++) {
+    if (randArr[i] === randNum) {
+      result = true;
+    }
+  }
+  alert(result);
+}
 
-
+rndNumCheck(getRandomArbitrary(), randomArray);
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
@@ -38,6 +60,12 @@ var first = [1,2,3,4,5];
 var second;
 
   //code here
+var copyArr = [];
+for (var i = 0; i < first.length; i++) {
+  copyArr.push(first[i]);
+}
+copyArr.push(6, 7);
+second = copyArr;
 
 alert(first) //[1,2,3,4,5];
 alert(second) //[1,2,3,4,5,6,7];
@@ -52,23 +80,57 @@ alert(second) //[1,2,3,4,5,6,7];
 var sentence = "Dev Mountain is the best"
 
   //code here
+function longest (inputSentence) {
+  var sentArray = inputSentence.split(" ");
+  var longest = '';
+  for (var i = 0; i < sentArray.length; i++) {
+    if (longest.length < sentArray[i].length) {
+      longest = sentArray[i];
+    }
+  }
+  console.log(longest);
+  return longest;
+}
 
-
+longest(sentence);
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
 
-//write a function called capitalize that takes in the myPoem variable and capitalizes every word 
+//write a function called capitalize that takes in the myPoem variable and capitalizes every word
 var myPoem = 'What is a jQuery but a misunderstood object?'
 //What is a jQuery but a misunderstood object? --> What Is A JQuery But A Misunderstood Object?
 
   //code here
+function capitalize (inputSentence) {
+  var sentenceArray = inputSentence.split(' ');
+  for (i = 0; i < sentenceArray.length; i++) {
+    var letters = sentenceArray[i].split('');
+    letters[0] = letters[0].toUpperCase();
+    sentenceArray[i] = letters.join('')
+  }
+  return sentenceArray.join(" ");
+}
 
-
-
+console.log(capitalize(myPoem));
 /* NEXT PROBLEM - NEXT PROBLEM - NEXT PROBLEM */
 
 
 
 var theOdyssey = "function expression or function declaration? Tis an obvious choice";
 //Write a function called vowelCounter that takes in a string (theOdyssey) and returns how many vowels are in that string.
+function vowelCounter (inputStr) {
+  var counter = 0;
+  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  var myArr = inputStr.split('');
+  for (var i = 0; i < myArr.length; i++) {
+    for (var j = 0; j < vowels.length; j++) {
+      if (myArr[i] === vowels[j]) {
+        counter = counter + 1;
+      }
+    }
+  }
+  return counter;
+}
+
+console.log(vowelCounter(theOdyssey));
